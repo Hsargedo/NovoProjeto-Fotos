@@ -1,2 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
 
+    /* Reset de toda a estilização do site */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

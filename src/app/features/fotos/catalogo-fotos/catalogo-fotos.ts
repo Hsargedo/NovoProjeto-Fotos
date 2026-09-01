@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Foto } from '../foto/foto';
+
+
 
 @Component({
   selector: 'app-catalogo-fotos',
@@ -6,4 +9,6 @@ import { Component } from '@angular/core';
   templateUrl: './catalogo-fotos.html',
   styleUrl: './catalogo-fotos.css',
 })
-export class CatalogoFotos {}
+export class CatalogoFotos {
+  
+}
