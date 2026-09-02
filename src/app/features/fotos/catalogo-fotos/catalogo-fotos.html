@@ -1,8 +1,22 @@
-<p>catalogo-fotos works!</p>
-
-
 <section id="catalogo">
-    <h1>Todo nosso catalogo!</h1>
+       <h1>Todo nosso catalogo!</h1>
+
+    <h2>Total de Fotos: {{ totalFotos() }}</h2>
+    <h3>Valor Total: R$ {{ valorTotal() }}</h3>
+
+    <button id="btn-adicionar" (click)="adicionarFoto()">Adicionar Foto</button>
+    <button id="btn-substituir" (click)="substituirFotos()">Subsituir Lista</button>
+
+    <section>
+    @for (item of fotos(); track item.nome) {
+        <app-foto
+            [nome]= "item.nome"
+            [preco]= "item.preco"
+            (fotoSelecionada)="exibirFoto($event)"
+        ></app-foto>
+    }
+   
 
 
+    </section>
 </section>

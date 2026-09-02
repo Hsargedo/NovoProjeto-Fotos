@@ -1,1 +1,8 @@
-<p>foto works!</p>
+<article class="foto-card">
+        <h2>{{ nome | uppercase}}</h2>
+        <p>Preço: R$ {{ preco | precoFormatado }}</p>  
+        
+        <button (click)="selecionarFoto()">
+            Selecionar Foto
+        </button>
+</article>

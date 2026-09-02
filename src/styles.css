@@ -4,4 +4,47 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: var(--text-color);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+    /* Variáveis globais de estilização para todo o site */
+
+:root{
+
+        /* Cores para estilizações */
+
+    --primary-color:#5E210E;
+    --secundary-color:;
+    --accent-color:;
+    --background-color:#242424;
+    --text-color:#ffffff;
+
+
+    /* Variáveis de tempo para transições e animações */
+
+    --short-time: 0.2s;
+    --medium-time: 0.5s;
+    --long-time: 1s;
+
+    /* Variáveis padrão para sections */
+
+    --section-margin:;
+    --section-padding:;
+    --section-shadow: 0px 4px 8px #423d3d;
+    --section-border: 2px solid rgb(15, 14, 14);
+    --section-font: ;
+    --section-gap:;
+    --section-transform-scale:1.03;
+
+    /* Estilização de botões */
+
+    --button-color:;
+    --button-scale:;
+
+
+
+
+
+    
 }

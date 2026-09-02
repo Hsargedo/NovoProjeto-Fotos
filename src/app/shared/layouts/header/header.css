@@ -12,7 +12,7 @@
   gap:10px;
   padding: 20px;
 
-  background-color: antiquewhite;
+  background-color: var(--header-background);
   color:seagreen;
 }
 

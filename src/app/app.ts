@@ -5,7 +5,7 @@ import { CatalogoFotos } from './features/fotos/catalogo-fotos/catalogo-fotos';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, Header],
+  imports: [ RouterOutlet, RouterLink, Header, CatalogoFotos],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
