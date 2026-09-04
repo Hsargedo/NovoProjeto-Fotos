@@ -1,1 +1,21 @@
-<p>login works!</p>
+<h2>Login</h2>
+
+<p>Informe corretamente os seus dados para acessar o sistema.</p>
+
+@if (erroLogin()) {
+    <p style="color: red"> Não foi possível realizar o login. Verifique se os dados informados estão corretos. </p>
+}
+
+<form [formGroup]="formulario">
+    <p>
+        <input type="email" formControlName="email" placeholder="E-mail" />
+    </p>
+
+    @if (formulario.get('email')?.touched && formulario.get('email')?.invalid) {
+        @if (formulario.get('email')?.errors?.['required']) {
+            <p style="color: red"> Campo Email obrigatório. </p>
+        }
+    
+    }
+
+    <!-- Ta quase dando a hora mané, vou dar commit, tentar né @luan-->
