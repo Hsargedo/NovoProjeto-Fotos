@@ -10,5 +10,5 @@ import { CatalogoFotos } from './features/fotos/catalogo-fotos/catalogo-fotos';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('sistema-fotos');
+  protected readonly title = signal('Oásis Photography');
 }

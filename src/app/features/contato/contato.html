@@ -1,0 +1,50 @@
+<h2>Contato Direto</h2>
+
+<section class="contato-container">
+  <mat-card class="contato-card">
+    <h1 class="titulo-contato">Contato Direto</h1>
+
+    <!-- Exibição dinâmica controlada reativamente via Signals -->
+    @if (orcamentoService.contatoLiberado()) {
+      <section class="contato-desbloqueado">
+        <section class="mensagem-liberada">
+          <h2>🔓 Contato Desbloqueado!</h2>
+          <p>Obrigado por nos escolher. Fale diretamente com o fotógrafo pelos canais oficiais:</p>
+        </section>
+
+        <section class="dados-grid">
+          <section class="dado-item">
+            <span class="icon">💬</span>
+            <section class="info">
+              <h3>WhatsApp</h3>
+              <p><a [href]="'https://wa.me/5511998887766'" target="_blank">{{ contatosFotografo.whatsapp }}</a></p>
+            </section>
+          </section>
+
+          <section class="dado-item">
+            <span class="icon">✉️</span>
+            <section class="info">
+              <h3>E-mail</h3>
+              <p><a [href]="'mailto:' + contatosFotografo.email">{{ contatosFotografo.email }}</a></p>
+            </section>
+          </section>
+        </section>
+
+        <section class="secao-reset">
+          <button mat-stroked-button color="warn" (click)="testarReset()">Simular Bloqueio Novamente</button>
+        </section>
+      </section>
+    } @else {
+      <section class="contato-bloqueado">
+        <section class="alerta-bloqueado">
+          <span class="lock-icon">🔒</span>
+          <h2>Canais de Contato Privados</h2>
+          <p>Por questões de triagem de segurança e agenda, o contato direto do fotógrafo é liberado imediatamente após o envio do formulário de orçamento.</p>
+          <button mat-raised-button color="accent" class="desbloquear-btn" routerLink="/orcamento">
+            Preencher Orçamento e Desbloquear Contato
+          </button>
+        </section>
+      </section>
+    }
+  </mat-card>
+</section>

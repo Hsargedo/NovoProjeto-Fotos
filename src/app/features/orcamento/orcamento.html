@@ -1,0 +1,54 @@
+<h2>Solicitar Orçamento</h2>
+<section class="orcamento-container">
+  <mat-card class="form-card">
+    <h1 class="titulo-form">Solicitar Orçamento</h1>
+    <p class="sub-form">Após enviar este formulário, os contatos diretos (WhatsApp e E-mail) do fotógrafo serão revelados automaticamente!</p>
+
+    @if (sucessoEnviado()) {
+      <section class="sucesso-alerta">
+        <h2>🎉 Orçamento Enviado com Sucesso!</h2>
+        <p><strong>A aba de Contatos está liberada!</strong></p>
+        <p class="redirecionando">Navegando automaticamente para a tela de contatos...</p>
+      </section>
+    } @else {
+      <form [formGroup]="formulario" (ngSubmit)="submeter()" class="form-grid">
+        <input type="text" formControlName="nome">
+          <mat-label>Nome Completo</mat-label>
+          <input matInput formControlName="nome">
+          @if (formulario.get('nome')?.touched && formulario.get('nome')?.invalid) {
+            <mat-error>Nome obrigatório (mínimo de 3 caracteres).</mat-error>
+          }
+        
+
+        <input type="email" formControlName="email">
+          <mat-label>Seu E-mail</mat-label>
+          <input matInput type="email" formControlName="email" placeholder="nome@provedor.com">
+          @if (formulario.get('email')?.touched && formulario.get('email')?.invalid) {
+            <mat-error>Insira um e-mail válido para receber nossa proposta.</mat-error>
+          }
+        
+
+        <input type="text" formControlName="tipoAlbum">
+          <mat-label>Álbum Temático</mat-label>
+          <mat-select formControlName="tipoAlbum">
+            @for (album of albuns; track $index) {
+              <mat-option [value]="album">{{ album }}</mat-option>
+            }
+          </mat-select>
+        
+
+        <input type="text" formControlName="Mensagem">
+          <label>Escreva os detalhes do seu projeto de ensaio</label>
+          <textarea matInput formControlName="mensagem" rows="4"></textarea>
+          @if (formulario.get('mensagem')?.touched && formulario.get('mensagem')?.invalid) {
+            <span>Descreva brevemente sua ideia (mínimo de 10 caracteres).</span>
+          }
+        
+
+        <button mat-raised-button color="accent" type="submit" class="submit-btn" [disabled]="formulario.invalid">
+          Enviar Solicitação 🚀
+        </button>
+      </form>
+    }
+  </mat-card>
+</section>
