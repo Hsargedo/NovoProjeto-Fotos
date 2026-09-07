@@ -29,12 +29,12 @@
 
     /* Variáveis padrão para sections */
 
-    --section-margin:;
+    --section-margin:60px;
     --section-padding:;
     --section-shadow: 0px 4px 8px #423d3d;
     --section-border: 2px solid rgb(15, 14, 14);
     --section-font: ;
-    --section-gap:;
+    --section-gap: 20px;
     --section-transform-scale:1.03;
 
     /* Estilização de botões */

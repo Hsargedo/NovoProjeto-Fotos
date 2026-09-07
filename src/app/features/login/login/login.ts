@@ -1,8 +1,21 @@
 import { Component, inject, signal } from '@angular/core';
-import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../../core/services/auth.service';
+import { ValidationError } from '@angular/forms/signals';
+
+function nomeSemNumeros(control: AbstractControl): ValidationErrors | null{
+  const valor = control.value;
+
+  if(!valor) return null;
+
+  if(/\d/.test(valor)){
+    return {nomeInvalido:true};
+  }
+  return null;
+
+}
 
 @Component({
   selector: 'app-login',
@@ -10,6 +23,10 @@ import { AuthService } from '../../../core/services/auth.service';
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
+
+
+
+
 export class Login {
   private authService = inject(AuthService);
   private router = inject(Router);
@@ -19,7 +36,7 @@ export class Login {
 
 
   formulario = new FormGroup({
-    nome: new FormControl('', [Validators.required]),
+    nome: new FormControl('', [Validators.required, Validators.minLength(3), nomeSemNumeros]),
     email: new FormControl('', [Validators.required, Validators.email]),
     senha: new FormControl('', [Validators.required, Validators.minLength(6)]),
   });

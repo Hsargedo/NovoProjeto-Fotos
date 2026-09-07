@@ -40,6 +40,8 @@ export class AuthService {
 
     }
 
+    
+
     logout() {
         this.usuario.set(null);
         this.tokenJwt.set(null);
