@@ -1,4 +1,4 @@
-<section id="header-principal">
+<!--<section id="header-principal">
 
     <h1>Header Principal</h1>
 
@@ -8,4 +8,36 @@
         <a routerLink="/login">Login</a>
     </nav>
 
+</section>-->
+
+
+<!--<mat-toolbar color="primary">
+    <span>Oásis Photography</span>
+    <span class="flex-spacer"></span>
+    <button mat-button routerLink="/sobre">Sobre</button>
+    <button mat-button routerLink="/albuns">Álbuns</button>
+    <button mat-button routerLink="/estudio">Estudio</button>
+    <button mat-button routerLink="/orcamento">Orçamento</button>
+    <button mat-button routerLink="/contato">Contato</button>
+</mat-toolbar>-->
+
+
+<mat-toolbar color="primary" class="app-header">
+  <section class="header-container">
+    <a routerLink="/" class="logo">Oásis Photography</a>
+    <span class="flex-spacer"></span>
+    <nav class="nav-links">
+      <button mat-button routerLink="/sobre" routerLinkActive="active-link">Sobre</button>
+      <button mat-button routerLink="/albuns" routerLinkActive="active-link">Álbuns</button>
+      <button mat-button routerLink="/estudio" routerLinkActive="active-link">Estúdio</button>
+      <button mat-button routerLink="/orcamento" routerLinkActive="active-link">Orçamento</button>
+      <button mat-flat-button 
+              [color]="orcamentoService.contatoLiberado() ? 'accent' : 'primary'"
+              routerLink="/contato" 
+              routerLinkActive="active-link">
+        Contato 
+        @if (orcamentoService.contatoLiberado()) { 🔓 } @else { 🔒 }
+      </button>
+    </nav>
 </section>
+</mat-toolbar>

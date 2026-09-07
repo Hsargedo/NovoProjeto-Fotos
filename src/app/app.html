@@ -1,10 +1,8 @@
 <!-- Header sempre renderizado no site -->
-<body>
+
 <app-header></app-header>
+<main class="page-container">
+    <!-- Onde renderizaremos todos os nossos componentes principais, via links do header -->
+  <router-outlet></router-outlet>
+</main>
 
-
-
-<!-- Onde renderizaremos todos os nossos componentes principais, via links do header -->
-
-<router-outlet></router-outlet>
-</body>
