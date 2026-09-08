@@ -1,5 +1,4 @@
-
-    /* Reset de toda a estilização do site */
+/* Reset de toda a estilização do site */ 
 *{
     margin: 0;
     padding: 0;
@@ -8,43 +7,51 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-    /* Variáveis globais de estilização para todo o site */
+:root {
 
-:root{
+    /* Cores principais */
 
-        /* Cores para estilizações */
-
-    --primary-color:#F7F5F2;
-    --secundary-color:#6F806B;
-    --accent-color:#C49A5A;
-    --background-color:#F7F5F2;
-    --text-color:#252525;
+    --primary-color: #F7F5F2;       /* Creme claro */
+    --secundary-color: #526451;     /* Verde oliva */
+    --accent-color: #C49A5A;        /* Dourado */
+    --background-color: #F2F0EC;    /* Fundo */
+    --text-color: #252525;          /* Texto principal */
 
 
-    /* Variáveis de tempo para transições e animações */
+    /* Cores complementares */
+
+    --card-color: #FFFFFF;          /* Cards */
+    --text-light-color: #F7F5F2;    /* Texto sobre fundo escuro */
+    --border-color: #D8D3CA;        /* Bordas */
+    --hover-color: #3F503F;         /* Hover verde */
+    --accent-hover-color: #A87D3E;  /* Hover dourado */
+
+
+    /* Sombras */
+
+    --section-shadow: 0px 4px 12px rgba(37, 37, 37, 0.15);
+
+
+    /* Variáveis de tempo */
 
     --short-time: 0.2s;
     --medium-time: 0.5s;
     --long-time: 1s;
 
-    /* Variáveis padrão para sections */
 
-    --section-margin:60px;
-    --section-padding:;
-    --section-shadow: 0px 4px 8px #423d3d;
-    --section-border: 2px solid rgb(15, 14, 14);
-    --section-font: ;
+    /* Sections */
+
+    --section-margin: 60px;
+    --section-padding: 30px;
     --section-gap: 20px;
-    --section-transform-scale:1.03;
-
-    /* Estilização de botões */
-
-    --button-color:;
-    --button-scale:;
+    --section-border: 1px solid var(--border-color);
+    --section-transform-scale: 1.03;
 
 
+    /* Botões */
 
-
-
-    
+    --button-color: var(--secundary-color);
+    --button-text-color: #FFFFFF;
+    --button-hover-color: var(--hover-color);
+    --button-scale: 1.03;
 }

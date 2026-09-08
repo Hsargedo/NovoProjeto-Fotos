@@ -60,6 +60,6 @@ export class Login {
       return;
     }
 
-    this.router.navigateByUrl('/fotos');
+    this.router.navigateByUrl('/catalogofotos');
   }
 }
