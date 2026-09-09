@@ -1,4 +1,5 @@
 import { Injectable, computed, signal } from '@angular/core';
+import { email } from '@angular/forms/signals';
 
 type Usuario = {
     nome: string;
@@ -39,8 +40,6 @@ export class AuthService {
         return true;
 
     }
-
-    
 
     logout() {
         this.usuario.set(null);

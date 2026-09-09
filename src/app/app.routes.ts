@@ -11,38 +11,19 @@ export const routes: Routes = [
   path:'home',
   loadComponent: () => import('./features/home/home/home').then((m) => m.Home)
   },
-
-  {
-    path: 'sobre',
-    loadComponent: () => import('./features/sobre/sobre').then(m => m.Sobre)
-  },
-
-  {
-    path: 'estudio',
-    loadComponent: () => import('./features/estudio/estudio').then(m => m.Estudio)
-  },
   {
     path: 'orcamento',
     canActivate: [authGuard],
     loadComponent: () => import('./features/orcamento/orcamento').then(m => m.Orcamento)
   },
-  
-  {
-    path: 'contato',
-    canActivate: [authGuard],
-    loadComponent: () => import('./features/contato/contato').then(m => m.Contato)
-  },
-
   {
   path:'catalogo-fotos',
   loadComponent: () => import('./features/fotos/catalogo-fotos/catalogo-fotos').then((m) => m.CatalogoFotos)
   },
-
   {
     path:'login',
     loadComponent: () => import('./features/login/login/login').then((m) => m.Login)
   },
-  
   {
     path:'**',
     redirectTo:""

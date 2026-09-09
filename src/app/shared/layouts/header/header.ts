@@ -1,10 +1,9 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink } from "@angular/router";
+import { RouterLink, Router } from "@angular/router";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
 import { RouterModule } from "@angular/router";
-import { OrcamentoService } from '../../../core/services/orcamento.service';
-
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -13,5 +12,13 @@ import { OrcamentoService } from '../../../core/services/orcamento.service';
   styleUrl: './header.css',
 })
 export class Header {
-  public orcamentoService = inject(OrcamentoService);
+  private authService = inject(AuthService);
+  private router = inject(Router);
+
+  estalogado = this.authService.estaLogado;
+
+  sair(){
+    this.authService.logout();
+    this.router.navigateByUrl('/home');
+  }
 }

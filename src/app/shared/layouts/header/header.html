@@ -1,15 +1,13 @@
 
   <section id="header">
-    <h1><a routerLink="/home" id="logo">Oásis Photography</a></h1>
-    <span class="flex-spacer"></span>
+    <button routerLink="/home" id="logo">Oásis Photography</button>
     <nav id="nav-bar">
-      <button  routerLink="/login" >Login</button>
-      <button routerLink="/sobre" >Sobre</button>
-      <button  routerLink="/catalogo-fotos" >Álbuns</button>
-      <button  routerLink="/estudio" >Estúdio</button>
-      <button routerLink="/orcamento" >Orçamento</button>
-      <button  routerLink="/contato">Contato
-        @if (orcamentoService.contatoLiberado()) { 🔓 } @else { 🔒 }
-        </button> 
+      @if (!estalogado()){
+        <button  routerLink="/login" class="nav-button" >Login</button>
+      } @else{
+        <button  type="button" class="nav-button" (click)="sair()">Sair</button>
+      }
+      <button  routerLink="/catalogo-fotos" class="nav-button" >Álbuns</button>
+      <button routerLink="/orcamento" class="nav-button" >Orçamento</button>
     </nav>
 </section>

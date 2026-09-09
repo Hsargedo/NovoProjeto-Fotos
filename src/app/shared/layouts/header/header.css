@@ -11,20 +11,43 @@
   padding: 20px;
 
   background-color: var(--secundary-color);
-  color: var(--secundary-color);
 
 }
 
 #header nav{
   display: flex;
+  gap: 25px;
 
-  gap: 5px;
+
 }
 
-#nav-bar button{
-  background-color: var(--);
+.nav-button{
+  background-color: var(--button-color);
+  color: var(--button-text-color);
+  padding: 8px;
+
+  border: 2px solid var(--border-color);
+  border-radius: 20px;
+
+  transition: all var(--short-time);
 }
 
+#nav-bar button:hover{
+  transform: scale(1.05);
+  background-color: var(--accent-color);
+}
 
+#logo{
+  color: var(--text-light-color);
+  transition: all var(--short-time);
 
+  border: none;
+  background: none;
 
+  font-size: xx-large;
+}
+
+#logo:hover{
+  transform: scale(1.05);
+
+}

@@ -7,24 +7,28 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+a, button:hover{
+    cursor: pointer;
+}
+
 :root {
 
     /* Cores principais */
 
-    --primary-color: #F7F5F2;       /* Creme claro */
-    --secundary-color: #526451;     /* Verde oliva */
-    --accent-color: #C49A5A;        /* Dourado */
-    --background-color: #F2F0EC;    /* Fundo */
-    --text-color: #252525;          /* Texto principal */
+    --primary-color: #fff1d6;
+    --secundary-color: #425aaf;
+    --accent-color: #6f83c9;
+    --background-color: #e8ecf7;
+    --text-color: #fff1d6;
 
 
     /* Cores complementares */
 
-    --card-color: #FFFFFF;          /* Cards */
-    --text-light-color: #F7F5F2;    /* Texto sobre fundo escuro */
-    --border-color: #D8D3CA;        /* Bordas */
-    --hover-color: #3F503F;         /* Hover verde */
-    --accent-hover-color: #A87D3E;  /* Hover dourado */
+    --card-color: #ffffff;
+    --text-light-color: #fff1d6;
+    --border-color: #b8c2df;
+    --hover-color: #30458f;
+    --accent-hover-color: #566db8;
 
 
     /* Sombras */
@@ -51,7 +55,7 @@
     /* Botões */
 
     --button-color: var(--secundary-color);
-    --button-text-color: #FFFFFF;
+    --button-text-color: #fff1d6;
     --button-hover-color: var(--hover-color);
     --button-scale: 1.03;
 }
