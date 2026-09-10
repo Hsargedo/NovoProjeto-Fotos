@@ -1,6 +1,6 @@
 
   <section id="header">
-    <button routerLink="/home" id="logo">Oásis Photography</button>
+    <button routerLink="/home" id="logo"><img src="/img/logo2.png"></button>
     <nav id="nav-bar">
       @if (!estalogado()){
         <button  routerLink="/login" class="nav-button" >Login</button>
@@ -8,6 +8,7 @@
         <button  type="button" class="nav-button" (click)="sair()">Sair</button>
       }
       <button  routerLink="/catalogo-fotos" class="nav-button" >Álbuns</button>
-      <button routerLink="/orcamento" class="nav-button" >Orçamento</button>
+      <button routerLink="/orcamento" class="nav-button" >Serviços</button>
+      <button routerLink="/contato" class="nav-button">Orçamento</button>
     </nav>
 </section>

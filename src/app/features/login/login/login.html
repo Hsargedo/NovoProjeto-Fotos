@@ -11,35 +11,37 @@
 
         <form [formGroup]="formulario" id="form-login">
 
-           
-            <input type="text" formControlName="nome" placeholder="Seu nome" />
-            
-            @if (formulario.get('nome')?.touched && formulario.get('nome')?.invalid){
-                @if (formulario.get('nome')?.errors?.['required']) {
-                    <small>Campo nome obrigatório.</small>
+            <article class="campo-form">
+                <input type="text" formControlName="nome" placeholder="Seu nome" />
+                
+                @if (formulario.get('nome')?.touched && formulario.get('nome')?.invalid){
+                    @if (formulario.get('nome')?.errors?.['required']) {
+                        <small>Campo nome obrigatório.</small>
+                    }
+                    @if (formulario.get('nome')?.errors?.['minlength']){
+                        <small>Tamanho de nome inválido.</small>
+                    }
+                    @if (formulario.get('nome')?.errors?.['nomeInvalido']) {
+                        <small>Caractéres inválidos.</small>
+                    }
                 }
-                @if (formulario.get('nome')?.errors?.['minlength']){
-                    <small>Tamanho de nome inválido.</small>
-                }
-                @if (formulario.get('nome')?.errors?.['nomeInvalido']) {
-                    <small>Caractéres inválidos.</small>
-                }
-            }
+            </article>
+        
+            <article class="campo-form">
+            <input type="email" formControlName="email" placeholder="E-mail" />
 
-        
-                <input type="email" formControlName="email" placeholder="E-mail" />
-        
-            
-            @if (formulario.get('email')?.touched && formulario.get('email')?.invalid) {
-                @if (formulario.get('email')?.errors?.['required']) {
-                    <small> Campo Email obrigatório. </small>
+                @if (formulario.get('email')?.touched && formulario.get('email')?.invalid) {
+                    @if (formulario.get('email')?.errors?.['required']) {
+                        <small> Campo Email obrigatório. </small>
+                    }
+                    @if (formulario.get('email')?.errors?.['email']) {
+                        <small> Email inválido. </small>
+                    }
                 }
-                @if (formulario.get('email')?.errors?.['email']) {
-                    <small> Email inválido. </small>
-                }
-            }
-      
-                <input type="password" formControlName="senha" placeholder="Senha" />
+            </article>
+
+            <article class="campo-form">
+            <input type="password" formControlName="senha" placeholder="Senha" />
           
 
             @if (formulario.get('senha')?.touched && formulario.get('senha')?.invalid) {
@@ -50,8 +52,8 @@
                     <small> Senha deve conter no mínimo 6 caracteres. </small>
                 }
             }
- 
-        <button type="button" (click)="entrar()" [disabled]="formulario.invalid">Entrar</button>
+            </article>
+            <button type="button" (click)="entrar()" [disabled]="formulario.invalid">Entrar</button>
         </form>
     </section>
 </main>

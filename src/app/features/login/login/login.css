@@ -20,17 +20,27 @@ main{
     gap: var(--section-gap);
 
     padding: 10px;
-    background-color: burlywood;
+    background-color: var(--primary-color);
+    box-shadow: var(--section-shadow);
+
+    border-radius: var(--border-radius);
+}
+
+.campo-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
 }
 
 #form-login{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    align-items: start;
     gap: 10px;
 
-    width: 80%;
+    width: 70%;
   
     height: auto;    
 }
@@ -40,10 +50,17 @@ main{
     border: 1px solid gray;
     border-radius: 8px;
 
-    width: 100%;
+    width: 60%;
     height: auto;
 }
 
 #form-login button{
+    width: 100%;
+    height: auto;
     
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: var(--border-radius);
+    font-size: large;
 }
+

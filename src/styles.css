@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: var(--text-color);
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -16,9 +15,9 @@ a, button:hover{
     /* Cores principais */
 
     --primary-color: #fff1d6;
-    --secundary-color: #425aaf;
-    --accent-color: #6f83c9;
-    --background-color: #e8ecf7;
+    --secundary-color: #831c00;
+    --accent-color: #a83212;
+    --background-color: #f3e5dc;
     --text-color: #fff1d6;
 
 
@@ -26,14 +25,14 @@ a, button:hover{
 
     --card-color: #ffffff;
     --text-light-color: #fff1d6;
-    --border-color: #b8c2df;
-    --hover-color: #30458f;
-    --accent-hover-color: #566db8;
+    --border-color: #d6b8aa;
+    --hover-color: #5c1300;
+    --accent-hover-color: #762000;
 
 
     /* Sombras */
 
-    --section-shadow: 0px 4px 12px rgba(37, 37, 37, 0.15);
+    --section-shadow: 0px 8px 12px rgba(10, 10, 10, 0.15);
 
 
     /* Variáveis de tempo */
@@ -50,6 +49,7 @@ a, button:hover{
     --section-gap: 20px;
     --section-border: 1px solid var(--border-color);
     --section-transform-scale: 1.03;
+    --border-radius:8px;
 
 
     /* Botões */

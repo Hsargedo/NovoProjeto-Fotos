@@ -1,0 +1,33 @@
+*{
+    background-color: var(--primary-color);
+}
+
+/* Footer */
+
+.site-footer {
+    
+    padding: 2rem 5%;
+
+    gap: .75rem;
+
+    border-top: var(--section-border);
+
+    align-items: flex-start;
+}
+
+.footer-brand {
+    font-size: 1rem;
+
+    font-weight: 600;
+}
+
+.footer-contact {
+    font-size: .95rem;
+}
+
+.footer-copy {
+    font-size: .9rem;
+}
+
+
+

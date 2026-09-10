@@ -17,10 +17,15 @@ export const routes: Routes = [
     loadComponent: () => import('./features/orcamento/orcamento').then(m => m.Orcamento)
   },
   {
+    path: 'contato',
+    canActivate: [authGuard],
+    loadComponent: () => import('./features/contato/contato').then(m => m.Contato)
+  },
+  {
   path:'catalogo-fotos',
   loadComponent: () => import('./features/fotos/catalogo-fotos/catalogo-fotos').then((m) => m.CatalogoFotos)
   },
-  {
+  { 
     path:'login',
     loadComponent: () => import('./features/login/login/login').then((m) => m.Login)
   },
