@@ -12,14 +12,14 @@ export const routes: Routes = [
   loadComponent: () => import('./features/home/home/home').then((m) => m.Home)
   },
   {
+    path: 'servicos',
+    canActivate: [authGuard],
+    loadComponent: () => import('./features/servicos/servicos').then(m => m.Servicos)
+  },
+  {
     path: 'orcamento',
     canActivate: [authGuard],
     loadComponent: () => import('./features/orcamento/orcamento').then(m => m.Orcamento)
-  },
-  {
-    path: 'contato',
-    canActivate: [authGuard],
-    loadComponent: () => import('./features/contato/contato').then(m => m.Contato)
   },
   {
   path:'catalogo-fotos',

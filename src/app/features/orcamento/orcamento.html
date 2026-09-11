@@ -1,170 +1,144 @@
-<!--<h2>Solicitar Orçamento</h2>
-<section class="orcamento-container">
-  <mat-card class="form-card">
-    <h1 class="titulo-form">Solicitar Orçamento</h1>
-    <p class="sub-form">Após enviar este formulário, os contatos diretos (WhatsApp e E-mail) do fotógrafo serão revelados automaticamente!</p>
 
-    @if (sucessoEnviado()) {
-      <section class="sucesso-alerta">
-        <h2>🎉 Orçamento Enviado com Sucesso!</h2>
-        <p><strong>A aba de Contatos está liberada!</strong></p>
-        <p class="redirecionando">Navegando automaticamente para a tela de contatos...</p>
-      </section>
-    } @else {
-      <form [formGroup]="formulario" (ngSubmit)="submeter()" class="form-grid">
-        <input type="text" formControlName="nome">
-          <mat-label>Nome Completo</mat-label>
-          <input matInput formControlName="nome">
-          @if (formulario.get('nome')?.touched && formulario.get('nome')?.invalid) {
-            <mat-error>Nome obrigatório (mínimo de 3 caracteres).</mat-error>
-          }
-        
+<section id="orcamento-main">
+  <h2>Solicitar Orçamento</h2>
+  <section class="orcamento-container">
+    <section class="form-card">
+      <h1 class="titulo-form">Solicitar Orçamento</h1>
 
-        <input type="email" formControlName="email">
-          <mat-label>Seu E-mail</mat-label>
-          <input matInput type="email" formControlName="email" placeholder="nome@provedor.com">
-          @if (formulario.get('email')?.touched && formulario.get('email')?.invalid) {
-            <mat-error>Insira um e-mail válido para receber nossa proposta.</mat-error>
-          }
-        
+      <p class="sub-form">
+        Após enviar este formulário, os contatos diretos (WhatsApp e E-mail)
+        do fotógrafo serão revelados automaticamente!
+      </p>
 
-        <input type="text" formControlName="tipoAlbum">
-          <mat-label>Álbum Temático</mat-label>
-          <mat-select formControlName="tipoAlbum">
-            @for (album of albuns; track $index) {
-              <mat-option [value]="album">{{ album }}</mat-option>
+      @if (sucessoEnviado()) {
+        <section class="sucesso-alerta">
+          <h2>Orçamento Enviado com Sucesso!</h2>
+          <p>
+            Continue navegando em 
+            <strong><span><a routerLink="/home">nosso site.</a></span></strong>
+          </p>
+          
+        </section>
+
+      } @else {
+        <form [formGroup]="formulario" 
+          (ngSubmit)="submeter()" 
+          class="form-grid">
+
+          <!-- NOME -->
+          <section class="campo">
+            <label for="nome">
+              Nome Completo
+            </label>
+
+            <input
+              id="nome"
+              type="text"
+              formControlName="nome"
+              placeholder="Digite seu nome completo">
+
+            @if (
+              formulario.get('nome')?.touched &&
+              formulario.get('nome')?.invalid
+            ) {
+              <span class="mensagem-erro">
+                Nome obrigatório (mínimo de 3 caracteres).
+              </span>
+
             }
-          </mat-select>
-        
 
-        <input type="text" formControlName="Mensagem">
-          <label>Escreva os detalhes do seu projeto de ensaio</label>
-          <textarea matInput formControlName="mensagem" rows="4"></textarea>
-          @if (formulario.get('mensagem')?.touched && formulario.get('mensagem')?.invalid) {
-            <span>Descreva brevemente sua ideia (mínimo de 10 caracteres).</span>
-          }
-        
+          </section>
 
-        <button mat-raised-button color="accent" type="submit" class="submit-btn" [disabled]="formulario.invalid">
-          Enviar Solicitação 🚀
-        </button>
-      </form>
-    }
-  </mat-card>
-</section>-->
+          <!-- E-MAIL -->
+          <section class="campo">
+            <label for="email">
+              Seu E-mail
+            </label>
+            <input
+              id="email"
+              type="email"
+              formControlName="email"
+              placeholder="nome@provedor.com">
 
+            @if (
+              formulario.get('email')?.touched &&
+              formulario.get('email')?.invalid
+            ) {
 
+              <span class="mensagem-erro">
+                Insira um e-mail válido para receber nossa proposta.
+              </span>
 
-<section class="precos">
+            }
+          </section>
 
-  <h2>Preços e Durações</h2>
+          <!-- ÁLBUM -->
+          <section class="campo">
+            <label for="tipoAlbum">
+              Álbum Temático
+            </label>
 
-  <section class="cards">
+            <select
+              id="tipoAlbum"
+              formControlName="tipoAlbum">
+              <option value="">
+                Selecione uma opção
+              </option>
 
-    <!-- CARD PACOTE BÁSICO -->
-    <article class="card">
+              @for (album of albuns; track $index) {
 
-      <section class="card-image">
-        <img src="/img/fotos-orcamento/foto1.jpg.jpeg" alt="Foto Pacote Básico">
+                <option [value]="album">
+                  {{ album }}
+                </option>
 
-        <header class="overlay">
-          <h3>PACOTE BÁSICO</h3>
-          <strong>100$</strong>
-        </header>
+              }
 
-      </section>
+            </select>
 
-      <section class="card-content">
-        <ul>
-          <li>
-            <span>DURAÇÃO </span>
-            <span>1 HORA</span>
-          </li>
-
-          <li>
-            <span>QUANTIDADES DE FOTOS LIMITADA</span>
-            <span>20-40</span>
-          </li>
-
-          <li>
-            <span>TIPOS DE ESTILOS</span>
-          </li>
-        </ul>
-
-        <button type="button">
-          Veja Mais
-        </button>
-      </section>
-    </article>
+          </section>
 
 
-    <!-- CARD PACOTE MEGA -->
-    <article class="card">
-      <section class="card-image">
-        <img src="/img/fotos-orcamento/foto2.jpg.jpeg" alt="Foto Pacote Mega">
+          <!-- MENSAGEM -->
 
-        <header class="overlay">
-          <h3>PACOTE MEGA</h3>
-          <strong>200$</strong>
-        </header>
-      </section>
+          <section class="campo">
 
-      <section class="card-content">
-        <ul>
-          <li>
-            <span>DURAÇÃO </span>
-            <span>2 HORAS</span>
-          </li>
+            <label for="mensagem">
+              Escreva os detalhes do seu projeto de ensaio
+            </label>
 
-          <li>
-            <span>QUANTIDADE DE FOTOS LIMITADA</span>
-            <span>50-70</span>
-          </li>
+            <textarea
+              id="mensagem"
+              formControlName="mensagem"
+              rows="4"
+              placeholder="Conte um pouco sobre o ensaio que você deseja..."
+            ></textarea>
 
-          <li>
-            <span>TIPOS DE ESTILOS</span>
-          </li>
-        </ul>
+            @if (
+              formulario.get('mensagem')?.touched &&
+              formulario.get('mensagem')?.invalid
+            ) {
 
-        <button type="button">
-          Veja Mais
-        </button>
-      </section>
-    </article>
+              <span class="mensagem-erro">
+                Descreva brevemente sua ideia (mínimo de 10 caracteres).
+              </span>
+
+            }
+
+          </section>
 
 
-    <!-- CARD PACOTE MÁXIMO -->
-    <article class="card featured">
-      <section class="card-image">
-        <img src="/img/fotos-orcamento/foto3.jpg.jpeg" alt="Foto Pacote Máximo">
+          <!-- BOTÃO -->
 
-        <header class="overlay">
-          <h3>PACOTE MÁXIMO</h3>
-          <strong>250$</strong>
-        </header>
-      </section>
+          <button
+            type="submit"
+            class="submit-btn"
+            [disabled]="formulario.invalid"
+          >
+            Enviar Solicitação 
+          </button>
+        </form>
 
-      <section class="card-content">
-        <ul>
-          <li>
-            <span>DURAÇÃO </span>
-            <span>2 HORAS</span>
-          </li>
-
-          <li>
-            <span>QUANTIDADE DE FOTOS LIMITADA</span>
-          </li>
-
-          <li>
-            <span>TIPOS DE ESTILOS</span>
-          </li>
-        </ul>
-
-        <button type="button" >
-          Veja Mais
-        </button>
-      </section>
-    </article>
+      }
+    </section>
   </section>
-
 </section>

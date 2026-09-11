@@ -1,5 +1,6 @@
 *{
-    background-color: var(--primary-color);
+    background-color: var(--secundary-color);
+    color: var(--text-color);
 }
 
 /* Footer */
@@ -10,7 +11,7 @@
 
     gap: .75rem;
 
-    border-top: var(--section-border);
+
 
     align-items: flex-start;
 }

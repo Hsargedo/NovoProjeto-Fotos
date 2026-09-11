@@ -1,36 +1,69 @@
+<section id="catalogo-main">
+    <section class="catalogo-header">
+        <span class="categoria-label">
+            OÁSIS PHOTOGRAPHY
+        </span>
+        <h1 class="titulo-pagina">
+            Álbuns 
+        </h1>
+        <p class="subtitulo-pagina">
+            Explore nossos trabalhos e conheça diferentes momentos
+            registrados através da fotografia.
+        </p>
+    </section>
 
-<section class="filtros">
+    
 
-    <button mat-button (click)="filtrar('todos')">Todos</button>
-    <button mat-button (click)="filtrar('casamento')">Casamento</button>
-    <button mat-button (click)="filtrar('gestante')">Gestante</button>
-    <button mat-button (click)="filtrar('família')">Família</button>
-    <button mat-button (click)="filtrar('corporativo')">Corporativo</button>
-    <button mat-button (click)="filtrar('eventos')">Eventos</button>
-    <button mat-button (click)="filtrar('infatil')">Infantil</button>
-</section>
 
-<section class="galeria-container">
-    <section class="secao-titulo">
-        <h1 class="titulo-pagina">Álbuns & Portfólio</h1>
-        <p class="subtitulo-pagina">Explore os momentos capturados com paixão e criatividade. Cada álbum é uma história única, repleta de emoções e memórias inesquecíveis.</p>
+    <section class="resultado-info">
+        <p>
+            <strong>{{ fotosFiltradas().length }}</strong>
+            trabalhos encontrados
+        </p>
     </section>
 
     <section class="grid-galeria">
-        @for (foto of fotosFiltradas(); track $index) {
-            <mat-card>
-                <section class="card-img-container">
-                    <img mat-card-image [src]="foto.url" [alt]="foto.titulo">
-                    <section class="overlay-categoria">
-                        <span class="badge">{{ foto.categoria }}</span>
+        @for (foto of fotosFiltradas(); track foto.id) {
+            <article
+                class="foto-card">
+
+                <section class="imagem-container">
+                    <img
+                        [src]="foto.url"
+                        [alt]="foto.titulo">
+
+                    <section class="foto-overlay">
+                        <span class="badge">
+                            {{ foto.categoria }}
+                        </span>
+                        <span class="ver-foto">
+                            Ver fotografia
+                        </span>
                     </section>
                 </section>
 
-                <mat-card-content class="card-content">
-                    <mat-card-title class="card-tittle">{{ foto.titulo }}</mat-card-title>
-                    
-                </mat-card-content>
-            </mat-card>
+                <section class="card-content">
+                    <h2>
+                        {{ foto.titulo || 'Álbum Oásis' }}
+                    </h2>
+                    <p>
+                        {{ foto.categoria }}
+                    </p>
+                </section>
+            </article>
         }
     </section>
+
+    @if (fotosFiltradas().length === 0) {
+        <section class="sem-resultados">
+            <span>📷</span>
+            <h2>
+                Nenhuma fotografia encontrada
+            </h2>
+            <p>
+                Tente pesquisar outro termo ou selecionar outra categoria.
+            </p>
+        </section>
+
+    }    
 </section>

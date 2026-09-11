@@ -1,23 +1,16 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field'; // <-- ADICIONADO
-import { MatOptionModule } from '@angular/material/core';         // <-- ADICIONADO
+
 import { OrcamentoService } from '../../core/services/orcamento.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-contato',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule, MatCardModule, MatButtonModule, MatInputModule, MatSelectModule, MatFormFieldModule, MatOptionModule],
-  templateUrl: './contato.html',
-  styleUrl: './contato.css'
+  selector: 'app-servicos',
+  imports: [RouterLink], 
+  templateUrl: './servicos.html',
+  styleUrl: './servicos.css',
 })
-export class Contato {
+export class Servicos {
   private orcamentoService = inject(OrcamentoService);
   private router = inject(Router);
 

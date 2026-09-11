@@ -25,8 +25,6 @@ function nomeSemNumeros(control: AbstractControl): ValidationErrors | null{
 })
 
 
-
-
 export class Login {
   private authService = inject(AuthService);
   private router = inject(Router);

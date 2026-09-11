@@ -1,13 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink, Router } from "@angular/router";
-import { MatToolbarModule } from "@angular/material/toolbar";
-import { MatButtonModule } from "@angular/material/button";
 import { RouterModule } from "@angular/router";
 import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, MatToolbarModule, MatButtonModule, RouterModule],
+  imports: [RouterLink, RouterModule],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
