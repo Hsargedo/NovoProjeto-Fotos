@@ -11,6 +11,10 @@ import { UpperCasePipe } from '@angular/common'
 export class Foto {
   @Input() nome: string = "";
   @Input() preco: number = 0;
+
+  @Input() id: string = "";
+  @Input() url: string = "";
+
   @Output() fotoSelecionada = new EventEmitter<string>();
 
   selecionarFoto() {

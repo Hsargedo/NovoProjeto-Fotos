@@ -1,7 +1,9 @@
-import { Component, signal, computed, effect } from '@angular/core';
+import { Component, signal, computed, effect, inject } from '@angular/core';
 import { Foto } from '../foto/foto';
 import { MatButtonModule} from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { FotoAleatoria } from '../../../core/models/foto';
+import { FotosService } from '../../../core/services/foto.service';
 
 export interface FotoPortfolio {
   id: number;
@@ -20,6 +22,8 @@ export interface FotoPortfolio {
 })
 
 export class CatalogoFotos {
+ fotosService = inject(FotosService);
+  fotos = signal<FotoAleatoria[]>([]);
 
   categorias = ['todos', 'casamentos', 'gestantes', 'família', 'corporativo', 'eventos', 'infantil'];
   categoriaAtiva = signal<string>('todos');
@@ -28,7 +32,7 @@ export class CatalogoFotos {
   fotoSelecionada = signal<FotoPortfolio | null>(null);
 
 
-  fotos = signal<FotoPortfolio[]>([
+ /* fotos = signal<FotoPortfolio[]>([
       { id: 1,
         url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Zm90byUyMGRlJTIwY2FzYW1lbnRvfGVufDB8fDB8fHww', 
         categoria: 'casamentos', 
@@ -60,27 +64,18 @@ export class CatalogoFotos {
         titulo: 'Criança sorridente ao ar livre' 
       }
     ]);
+    */
 
-      fotosFiltradas = computed(() => {
-        const categoria = this.categoriaAtiva();
+    carregarFotos(){
+      this.fotosService.buscarFotos().subscribe({
+       next: (dados) => {
+    console.log(dados);
 
-        const texto = this.pesquisa()
-            .toLowerCase()
-            .trim();
-
-        return this.fotos().filter(foto => {
-            const pertenceCategoria =
-                categoria === 'todos' ||
-                foto.categoria === categoria;
-
-            const correspondePesquisa =
-                foto.titulo.toLowerCase().includes(texto) ||
-                foto.categoria.toLowerCase().includes(texto);
-
-            return pertenceCategoria && correspondePesquisa;
-        });
-    });
-
+    const fotos = this.fotosService.transformarFotos(dados);
+    this.fotos.set(fotos);
+}
+      })
+    }
 
     filtrar(categoria: string) {
         this.categoriaAtiva.set(categoria);
@@ -92,6 +87,10 @@ export class CatalogoFotos {
         this.pesquisa.set(input.value);
     }
 
+
+    constructor(){
+      this.carregarFotos();
+    }
 }
 
 

@@ -4,8 +4,12 @@ import { FotoAleatoria } from "../models/foto";
 
 type FotoApi = {
     id:string;
-    url:string;
+    urls:URLsApi;
 };
+
+type URLsApi = {
+    full:string;
+}
 
 @Injectable({
     providedIn: 'root',
@@ -13,7 +17,7 @@ type FotoApi = {
 
 export class FotosService{
     private http = inject(HttpClient);
-    private readonly API = 'https://api.unsplash.com/photos/random/?client_id=bjE8yRcMzRyH5zzxVPgzV8pDXJ11RpxwOVG_nFOQtfY'
+    private readonly API = 'https://api.unsplash.com/photos/random/?client_id=bjE8yRcMzRyH5zzxVPgzV8pDXJ11RpxwOVG_nFOQtfY&count=10';
 
     buscarFotos(){
         return this.http.get<FotoApi[]>(this.API);
@@ -21,7 +25,7 @@ export class FotosService{
     transformarFotos(dados: FotoApi[]): FotoAleatoria[]{
         return dados.map((foto) => ({
             id: foto.id,
-            url: foto.url,
+            url: foto.urls.full,
         }));
     } 
 }

@@ -16,54 +16,15 @@
 
 
     <section class="resultado-info">
-        <p>
-            <strong>{{ fotosFiltradas().length }}</strong>
-            trabalhos encontrados
-        </p>
+       
     </section>
 
     <section class="grid-galeria">
-        @for (foto of fotosFiltradas(); track foto.id) {
-            <article
-                class="foto-card">
+        @for (foto of fotos(); track foto.id) {
+            <app-foto [id]="foto.id"  [url]="foto.url">
 
-                <section class="imagem-container">
-                    <img
-                        [src]="foto.url"
-                        [alt]="foto.titulo">
-
-                    <section class="foto-overlay">
-                        <span class="badge">
-                            {{ foto.categoria }}
-                        </span>
-                        <span class="ver-foto">
-                            Ver fotografia
-                        </span>
-                    </section>
-                </section>
-
-                <section class="card-content">
-                    <h2>
-                        {{ foto.titulo || 'Álbum Oásis' }}
-                    </h2>
-                    <p>
-                        {{ foto.categoria }}
-                    </p>
-                </section>
-            </article>
+            </app-foto>
         }
     </section>
 
-    @if (fotosFiltradas().length === 0) {
-        <section class="sem-resultados">
-            <span>📷</span>
-            <h2>
-                Nenhuma fotografia encontrada
-            </h2>
-            <p>
-                Tente pesquisar outro termo ou selecionar outra categoria.
-            </p>
-        </section>
-
-    }    
 </section>

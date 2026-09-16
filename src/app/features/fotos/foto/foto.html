@@ -1,7 +1,6 @@
 <article class="foto-card">
-        <h2>{{ nome | uppercase}}</h2>
-        <p>Preço: R$ {{ preco | precoFormatado }}</p>  
-        
+        <h2>ID: {{ id }}</h2>
+       <img [src]="url">
         <button (click)="selecionarFoto()">
             Selecionar Foto
         </button>
